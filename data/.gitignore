@@ -1,0 +1,2 @@
+# Ignore compressed files in this directory due to file size
+*.bz2
