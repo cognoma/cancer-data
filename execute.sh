@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# Exit on error
+set -o errexit
+
 # Create or overwrite the cognoma-cancer-data conda environment
 conda env create --quiet --force --file environment.yml
 

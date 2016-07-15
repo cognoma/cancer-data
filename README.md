@@ -9,7 +9,7 @@ The data acquisition and analysis is executing by running Jupyter notebooks in t
 1. [`1.TCGA-download.ipynb`](1.TCGA-download.ipynb) — download and compress TCGA datasets.
 + [`2.TCGA-process.ipynb`](2.TCGA-process.ipynb) — convert downloaded TCGA datasets into sample × gene matrixes.
 
-The [`execute.sh`](execute.sh) script installs and activates the conda environment and then executes the notebooks in order.
+The [`execute.sh`](execute.sh) script installs and activates the conda environment and then executes the notebooks in order. Run with the command `bash execute.sh` from the repository's root directory.
 
 ## Directories
 
