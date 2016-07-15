@@ -15,7 +15,7 @@ The [`execute.sh`](execute.sh) script installs and activates the conda environme
 
 The repository contains the following directories:
 
-+ [`download`](download) — contains files retrieved from an external location whose content is unmodified. Downloaded files are currently not tracked due to large file size.
++ [`download`](download) — contains files retrieved from an external location whose content is unmodified. Downloaded files are currently not tracked due to large file size, although associated metadata files are tracked for versioning.
 + [`data`](data) — contains generated datasets. The complete matrix files are not currently tracked due to file size, but randomly-subsetted versions are available for development use (see [`data/subset`](data/subset)).
 
 ## Environment

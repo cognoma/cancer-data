@@ -1,0 +1,34 @@
+{"security":"public",
+ "anatomical_origin":"",
+ "unit":"log2(normalized_count+1)",
+ "path":
+ "/inside/home/jzhu/cgDataJing/TCGAscripts/preFreezeCAVM/TCGA/PANCAN/HiSeqV2",
+ ":probeMap":"/probeMap/hugo_gencode_v24_gtf",
+ "wrangling_procedure":
+ "Data is combined from all TCGA cohorts and deposited into UCSC Xena repository",
+ "name":"HiSeqV2_PANCAN",
+ "sample_type":["tumor"],
+ "url":
+ "https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/",
+ "dataSubType":"gene expression RNAseq",
+ "label":"gene expression",
+ "cohort":"TCGA Pan-Cancer (PANCAN)",
+ "redistribution":true,
+ "version":"2016-04-29",
+ "tags":
+ ["cancer", "non-small cell lung cancer", "gastric cancer",
+  "pancancer", "Adrenal gland", "Esophagus", "Rectum", "Endometrium",
+  "Brian", "Head and Neck region", "Thymus", "Lung", "Blood",
+  "Soft tissue", "Bone", "Stomach", "Colon and Rectum", "Prostate",
+  "Breast", "Ovary", "Kidney", "Lymphatic tissue", "Brain",
+  "Thyroid Gland", "Bladder", "Paraganglia", "Cervix", "Uterus",
+  "Liver", "Bile duct", "Eye", "Skin", "Colon", "Testis",
+  "Lining of body cavities", "White blood cell", "Pancreas"],
+ "type":"genomicMatrix",
+ "longTitle":"TCGA pan-cancer gene expression (polyA+ IlluminaHiSeq)",
+ "dataProducer":"UCSC Xena team",
+ "description":
+ "TCGA pan-cancer gene expression by RNAseq, compiled using data from all TCGA cohorts. Gene expression was measured using the IlluminaHiSeq technology. Data from all TCGA cohorts are combined to produce this dataset. Values are log2(x+1) transformed RSEM values.<br>",
+ "colNormalization":true,
+ "primary_disease":"cancer",
+ "RNAtype":["polyA+"]}

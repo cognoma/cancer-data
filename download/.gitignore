@@ -1,5 +1,2 @@
-# Ignore everything in this directory
-*
-
-# Except this file
-!.gitignore
+# Ignore compressed files in this directory due to file size
+*.bz2
