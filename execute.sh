@@ -10,5 +10,5 @@ conda env create --quiet --force --file environment.yml
 source activate cognoma-cancer-data
 
 # Execute notebooks in order
-jupyter nbconvert --to=script --FilesWriter.build_directory=scripts *.ipynb
 jupyter nbconvert --inplace --execute --ExecutePreprocessor.timeout=-1 *.ipynb
+jupyter nbconvert --to=script --FilesWriter.build_directory=scripts *.ipynb
