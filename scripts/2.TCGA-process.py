@@ -34,7 +34,7 @@ clinmat_df.sample_type.value_counts()
 
 # ## Read mutation data
 # 
-# This file contains mutation data (which mutations each sample contains) See the [online documentation](https://genome-cancer.soe.ucsc.edu/proj/site/xena/datapages/?dataset=TCGA.PANCAN.sampleMap/PANCAN_mutation&host=https://tcga.xenahubs.net) for `PANCAN_mutation`.
+# This file contains mutation data (which mutations each sample contains) See the [online documentation](https://genome-cancer.soe.ucsc.edu/proj/site/xena/datapages/?dataset=TCGA.PANCAN.sampleMap/PANCAN_mutation&host=https://tcga.xenahubs.net) for `PANCAN_mutation`. Note that duplicate mutation rows, which [occur](https://groups.google.com/d/msg/ucsc-cancer-genomics-browser/eg6nJOFSefw/Z0BM6pU9BAAJ "Message on the Xena Browser Google Group") for samples that were sequenced multiple times, are filtered.
 
 # In[4]:
 
@@ -42,25 +42,18 @@ path = os.path.join('download', 'PANCAN_mutation.tsv.bz2')
 snp_mutation_df = (
     pandas.read_table(path)
     .rename(columns={'sample': 'sample_id'})
+    .drop_duplicates()
 )
 snp_mutation_df.head(2)
 
 
 # In[5]:
 
-# The mutation data contains duplicated rows. Disturbing issues like this are
-# common in bioinformatics. The following
-print('Removing {:.2%} of the mutations, which are duplicates'.format(snp_mutation_df.duplicated().sum() / len(snp_mutation_df)))
-snp_mutation_df.drop_duplicates(inplace=True)
-
-
-# In[6]:
-
 # Number of samples with at least one mutation
 snp_mutation_df.sample_id.nunique()
 
 
-# In[7]:
+# In[6]:
 
 # Mutations counts by type
 snp_mutation_df.effect.value_counts().reset_index()
@@ -70,7 +63,7 @@ snp_mutation_df.effect.value_counts().reset_index()
 # 
 # The next cell specifies which mutations to preserve as gene-affecting, which were chosen according to the red & blue [mutation effects in Xena](http://xena.ucsc.edu/how-we-characterize-mutations/).
 
-# In[8]:
+# In[7]:
 
 mutations = {
     'Frame_Shift_Del',
@@ -86,13 +79,13 @@ mutations = {
 }
 
 
-# In[9]:
+# In[8]:
 
 # Mutations effects that were observed but nut included
 set(snp_mutation_df.effect.unique()) - mutations
 
 
-# In[10]:
+# In[9]:
 
 gene_mutation_df = (snp_mutation_df
     .query("effect in @mutations")
@@ -104,7 +97,7 @@ gene_mutation_df = (snp_mutation_df
 gene_mutation_df.head(2)
 
 
-# In[11]:
+# In[10]:
 
 # Create a sample (rows) by gene (columns) matrix of mutation status
 gene_mutation_mat_df = (gene_mutation_df
@@ -114,19 +107,19 @@ gene_mutation_mat_df = (gene_mutation_df
 gene_mutation_mat_df.shape
 
 
-# In[12]:
+# In[11]:
 
 '{:.2%} sample-gene pairs are mutated'.format(
     gene_mutation_mat_df.stack().mean())
 
 
-# In[13]:
+# In[12]:
 
 # Top mutated genes
 gene_mutation_df.gene.value_counts().reset_index().head(5)
 
 
-# In[14]:
+# In[13]:
 
 # Top mutated samples
 gene_mutation_df.sample_id.value_counts().reset_index().head(5)
@@ -136,7 +129,7 @@ gene_mutation_df.sample_id.value_counts().reset_index().head(5)
 # 
 # This file contains gene expression data from RNA-Sequencing. See the [online documentation](https://genome-cancer.soe.ucsc.edu/proj/site/xena/datapages/?dataset=TCGA.PANCAN.sampleMap/HiSeqV2&host=https://tcga.xenahubs.net) for `HiSeqV2`.
 
-# In[15]:
+# In[14]:
 
 # Read the gene × sample dataset
 path = os.path.join('download', 'HiSeqV2.tsv.bz2')
@@ -158,7 +151,7 @@ expr_df.index.rename('sample_id', inplace=True)
 expr_df.shape
 
 
-# In[16]:
+# In[15]:
 
 # Peak at the data matrix
 expr_df.iloc[:5, :5]
@@ -168,13 +161,13 @@ expr_df.iloc[:5, :5]
 # 
 # Find samples with both mutation and expression data. We assume that if a sample was not in `PANCAN_mutation`, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
 
-# In[17]:
+# In[16]:
 
 sample_ids = list(gene_mutation_mat_df.index & expr_df.index)
 len(sample_ids)
 
 
-# In[18]:
+# In[17]:
 
 # Filter expression (x) and mutation (y) matrices for common samples
 x_df = expr_df.loc[sample_ids, :]
@@ -185,7 +178,7 @@ y_df = gene_mutation_mat_df.loc[sample_ids, :]
 # 
 # Matrices are saved as sample × gene TSVs. Subsetted matrices are also exported to allow users to quickly explore small portions of the dataset.
 
-# In[19]:
+# In[18]:
 
 def sample_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     """Randomly subset a dataframe, preserving row and column order."""
@@ -201,7 +194,7 @@ def sample_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     )
 
 
-# In[20]:
+# In[19]:
 
 tsv_args = {'sep': '\t', 'float_format': '%.3g'}
 
