@@ -1,0 +1,7 @@
+{"cohort":"TCGA Pan-Cancer (PANCAN)",
+ ":clinicalFeature":"PANCAN_clinicalFeature",
+ "name":"PANCAN_clinicalMatrix",
+ "version":"2016-04-30",
+ "label":"Phenotypes",
+ "type":"clinicalMatrix",
+ "dataSubType":"phenotype"}
