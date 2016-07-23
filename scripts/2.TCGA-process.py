@@ -135,10 +135,25 @@ gene_mutation_df.sample_id.value_counts().reset_index().head(5)
 path = os.path.join('download', 'HiSeqV2.tsv.bz2')
 expr_df = pandas.read_table(path, index_col=0)
 
+
+# In[15]:
+
+# Retrieve symbol to gene mapping for HiSeqV2
+path = os.path.join('mapping', 'HiSeqV2-genes', 'HiSeqV2-gene-map.tsv')
+gene_map_df = pandas.read_table(path)
+symbol_to_entrez = dict(zip(gene_map_df.symbol, gene_map_df.entrez_gene_id))
+
+# Check that there aren't any unmapped symbols
+unmapped_symbols = set(expr_df.index) - set(symbol_to_entrez)
+unmapped_symbols
+
+
+# In[16]:
+
 # Process the dataset
 expr_df = (expr_df
-    # Remove genes containing a `?`
-    [~expr_df.index.str.contains('?', regex=False)]
+    # Convert gene symbols to entrez gene ids
+    .rename(index=symbol_to_entrez)
     # Transpose so the data is sample × gene
     .transpose()
     # Sort rows and columns
@@ -151,7 +166,7 @@ expr_df.index.rename('sample_id', inplace=True)
 expr_df.shape
 
 
-# In[15]:
+# In[17]:
 
 # Peak at the data matrix
 expr_df.iloc[:5, :5]
@@ -161,13 +176,13 @@ expr_df.iloc[:5, :5]
 # 
 # Find samples with both mutation and expression data. We assume that if a sample was not in `PANCAN_mutation`, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
 
-# In[16]:
+# In[18]:
 
 sample_ids = list(gene_mutation_mat_df.index & expr_df.index)
 len(sample_ids)
 
 
-# In[17]:
+# In[19]:
 
 # Filter expression (x) and mutation (y) matrices for common samples
 x_df = expr_df.loc[sample_ids, :]
@@ -178,7 +193,7 @@ y_df = gene_mutation_mat_df.loc[sample_ids, :]
 # 
 # Matrices are saved as sample × gene TSVs. Subsetted matrices are also exported to allow users to quickly explore small portions of the dataset.
 
-# In[18]:
+# In[20]:
 
 def sample_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     """Randomly subset a dataframe, preserving row and column order."""
@@ -194,7 +209,7 @@ def sample_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     )
 
 
-# In[19]:
+# In[21]:
 
 tsv_args = {'sep': '\t', 'float_format': '%.3g'}
 
