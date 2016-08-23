@@ -14,7 +14,7 @@
  "label":"gene expression",
  "cohort":"TCGA Pan-Cancer (PANCAN)",
  "redistribution":true,
- "version":"2016-04-29",
+ "version":"2016-08-16",
  "tags":
  ["cancer", "non-small cell lung cancer", "gastric cancer",
   "pancancer", "Adrenal gland", "Esophagus", "Rectum", "Endometrium",
