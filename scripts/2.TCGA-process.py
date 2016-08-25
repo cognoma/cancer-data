@@ -21,6 +21,7 @@ import pandas
 
 path = os.path.join('download', 'PANCAN_clinicalMatrix.tsv.bz2')
 
+# Mapping to rename and filter columns
 renamer = collections.OrderedDict([
     ('sampleID', 'sample_id'),
     ('_PATIENT', 'patient_id'),
@@ -35,13 +36,18 @@ renamer = collections.OrderedDict([
     ('_RFS', 'days_recurrence_free'),
 ])
 
+# Keep only these sample types
+# filters duplicate samples per patient
+sample_types = {
+    'Primary Tumor',
+    'Primary Blood Derived Cancer - Peripheral Blood',
+}
+
 clinmat_df = (
     pandas.read_table(path)
     .rename(columns=renamer)
     [list(renamer.values())]
-    # Restrict to Primary Tumor samples (> 80% of samples):
-    # filters duplicate samples per patient
-    .query("sample_type == 'Primary Tumor'")
+    .query("sample_type in @sample_types")
     .set_index('sample_id', drop=False)
 )
 
@@ -216,6 +222,12 @@ expr_df.shape
 
 # In[19]:
 
+# Number of patients represented in the expression dataset
+clinmat_df.query("sample_id in @expr_df.index").patient_id.nunique()
+
+
+# In[20]:
+
 # Peak at the data matrix
 expr_df.iloc[:5, :5]
 
@@ -224,13 +236,13 @@ expr_df.iloc[:5, :5]
 # 
 # Find samples with both mutation and expression data. We assume that if a sample was not in `PANCAN_mutation`, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
 
-# In[20]:
+# In[21]:
 
 sample_ids = list(clinmat_df.index & gene_mutation_mat_df.index & expr_df.index)
 len(sample_ids)
 
 
-# In[21]:
+# In[22]:
 
 # Filter expression (x) and mutation (y) matrices for common samples
 sample_df = clinmat_df.loc[sample_ids, :]
@@ -242,13 +254,13 @@ y_df = gene_mutation_mat_df.loc[sample_ids, :]
 # 
 # Matrices are saved as sample × gene TSVs. Subsetted matrices are also exported to allow users to quickly explore small portions of the dataset.
 
-# In[22]:
+# In[23]:
 
 path = os.path.join('data', 'samples.tsv')
 sample_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
 
 
-# In[23]:
+# In[24]:
 
 def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     """Randomly subset a dataframe, preserving row and column order."""
@@ -264,7 +276,7 @@ def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     )
 
 
-# In[24]:
+# In[25]:
 
 tsv_args = {'sep': '\t', 'float_format': '%.3g'}
 
