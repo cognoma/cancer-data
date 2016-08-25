@@ -5,6 +5,7 @@
 
 # In[1]:
 
+import collections
 import os
 
 import pandas
@@ -13,23 +14,55 @@ import pandas
 # ## Read sample information
 # 
 # This file contains sample information. See the [online documentation](https://genome-cancer.soe.ucsc.edu/proj/site/xena/datapages/?dataset=TCGA.PANCAN.sampleMap/PANCAN_clinicalMatrix&host=https://tcga.xenahubs.net) for `PANCAN_clinicalMatrix`.
+# 
+# See [cognoma/cancer-data#14](https://github.com/cognoma/cancer-data/issues/14#issuecomment-238642439 "GitHub Issue: Variable documentation for Xena Browser datasets") for additional variable documentation.
 
 # In[2]:
 
 path = os.path.join('download', 'PANCAN_clinicalMatrix.tsv.bz2')
+
+# Mapping to rename and filter columns
+renamer = collections.OrderedDict([
+    ('sampleID', 'sample_id'),
+    ('_PATIENT', 'patient_id'),
+    ('sample_type', 'sample_type'),
+    ('_primary_disease', 'disease'),
+    ('_primary_site', 'organ_of_origin'),
+    ('gender', 'gender'),
+    ('age_at_initial_pathologic_diagnosis', 'age_diagnosed'),
+    ('_OS_IND', 'dead'),
+    ('_OS', 'days_survived'),
+    ('_RFS_IND', 'recurred'),
+    ('_RFS', 'days_recurrence_free'),
+])
+
+# Keep only these sample types
+# filters duplicate samples per patient
+sample_types = {
+    'Primary Tumor',
+    'Primary Blood Derived Cancer - Peripheral Blood',
+}
+
 clinmat_df = (
     pandas.read_table(path)
-    .rename(columns={'sampleID': 'sample_id'})
+    .rename(columns=renamer)
+    [list(renamer.values())]
+    .query("sample_type in @sample_types")
+    .set_index('sample_id', drop=False)
 )
-# Check that no sample_ids are duplicated
-assert not clinmat_df.sample_id.duplicated().any()
-clinmat_df.shape
+
+# Fix capitalization of gender
+clinmat_df.gender = clinmat_df.gender.str.title()
+
+# Check that no patients are duplicated
+assert not clinmat_df.duplicated('patient_id', keep=False).any()
+
+len(clinmat_df)
 
 
 # In[3]:
 
-# Types of samples
-clinmat_df.sample_type.value_counts()
+clinmat_df.head(2)
 
 
 # ## Read mutation data
@@ -189,6 +222,12 @@ expr_df.shape
 
 # In[19]:
 
+# Number of patients represented in the expression dataset
+clinmat_df.query("sample_id in @expr_df.index").patient_id.nunique()
+
+
+# In[20]:
+
 # Peak at the data matrix
 expr_df.iloc[:5, :5]
 
@@ -197,15 +236,16 @@ expr_df.iloc[:5, :5]
 # 
 # Find samples with both mutation and expression data. We assume that if a sample was not in `PANCAN_mutation`, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
 
-# In[20]:
+# In[21]:
 
-sample_ids = list(gene_mutation_mat_df.index & expr_df.index)
+sample_ids = list(clinmat_df.index & gene_mutation_mat_df.index & expr_df.index)
 len(sample_ids)
 
 
-# In[21]:
+# In[22]:
 
 # Filter expression (x) and mutation (y) matrices for common samples
+sample_df = clinmat_df.loc[sample_ids, :]
 x_df = expr_df.loc[sample_ids, :]
 y_df = gene_mutation_mat_df.loc[sample_ids, :]
 
@@ -214,9 +254,15 @@ y_df = gene_mutation_mat_df.loc[sample_ids, :]
 # 
 # Matrices are saved as sample × gene TSVs. Subsetted matrices are also exported to allow users to quickly explore small portions of the dataset.
 
-# In[22]:
+# In[23]:
 
-def sample_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
+path = os.path.join('data', 'samples.tsv')
+sample_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
+
+
+# In[24]:
+
+def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     """Randomly subset a dataframe, preserving row and column order."""
     if nrows is None:
         nrows = len(df)
@@ -230,7 +276,7 @@ def sample_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     )
 
 
-# In[23]:
+# In[25]:
 
 tsv_args = {'sep': '\t', 'float_format': '%.3g'}
 
@@ -243,10 +289,5 @@ for df, name in (x_df, 'expression-matrix'), (y_df, 'mutation-matrix'):
     # Save subsetted datasets
     for sample, nrows, ncols in ('small', 50, 15), ('all-samples', None, 15), ('all-genes', 50, None):
         path = os.path.join('data', 'subset', '{}-{}.tsv'.format(name, sample))
-        sample_df(df, nrows=nrows, ncols=ncols).to_csv(path, **tsv_args)
-
-
-# In[24]:
-
-
+        subset_df(df, nrows=nrows, ncols=ncols).to_csv(path, **tsv_args)
 
