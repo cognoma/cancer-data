@@ -101,11 +101,19 @@ gene_subset = {
     '7157': 'TP53', # tumor protein p53
     '7428': 'VHL', # von Hippel-Lindau tumor suppressor
     '29126': 'CD274', # CD274 molecule
+    '672': 'BRCA1', # BRCA1, DNA repair associated
+    '675': 'BRCA2', # BRCA2, DNA repair associated
+    '238': 'ALK', # anaplastic lymphoma receptor tyrosine kinase
+    '4221': 'MEN1', # menin 1
+    '5979': 'RET', # ret proto-oncogene 
 }
 plot_df = (mutation_freq_df
     .query("n_mutations > 100")
     [list(gene_subset)]
     .rename(columns=gene_subset)
 )
+
+# Convert to percent of max mutation rate for gene
+plot_df = 100 * plot_df.divide(plot_df.max())
 ax = seaborn.heatmap(plot_df)
 
