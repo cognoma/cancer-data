@@ -1,9 +1,7 @@
 
 # coding: utf-8
 
-# # Incorporating covariate information into classifiers
-
-# ## Creating a covariate dataset that encodes categorical sample variables
+# # Creating a covariate dataset that encodes categorical sample variables
 
 # The sample data possesses covariates as shown in <a href='https://github.com/cognoma/cancer-data/blob/master/3.explore-mutations.ipynb'>this notebook</a>. These may provide a spurious signal that a classifier accommodates for, and could confound attempts to pick out the actual signal that we desire. This notebook will create a file with encoded information on these covariates. Classifiers being implemented by the machine learning group can use this as additional data to train on.
 
@@ -117,40 +115,3 @@ covariates_df.head()
 path = os.path.join('data', 'covariates.tsv')
 covariates_df.to_csv(path, sep='\t', float_format='%.5g')
 
-
-# ## Exploratory data visualization for imputing missing numeric values
-
-# Now let's do a quick exploratory data visualization. The long term goal is imputation of the missing numeric values <code>age_diagnosed</code>, <code>days_survived</code> and <code>days_recurrence_free</code>.
-# 
-# One might expected a correlation between the latter two, with identity when <code>recurred</code> is false.
-
-# In[14]:
-
-sns.lmplot('days_survived', 'days_recurrence_free', data=covariates_df, hue='has_recurred')
-plt.show()
-
-
-# There is a modest correlation coefficient between <code>days_recurrence_free</code> and <code>days_survived</code>, conditioned on <code>recurred</code> being true:
-
-# In[15]:
-
-days_corr_coef = covariates_df[covariates_df.has_recurred==1].corr().loc['days_survived']['days_recurrence_free']
-print('Correlation coefficient: %.2f' % days_corr_coef)
-
-
-# This could be used to impute one given the other, and there is far more data on <code>days_survived</code>.
-# 
-# As shown in the <a href='https://github.com/cognoma/cancer-data/blob/master/3.explore-mutations.ipynb'>aforementioned notebook</a>, there is a correlation between <code>age_diagnosed</code> and <code>n_mutations_log1p</code> which could be used to impute age. Let's explore these on a disease-specific basic.
-
-# In[16]:
-
-for disease in set(diseases):
-    sns.jointplot('n_mutations_log1p',
-                  'age_diagnosed',
-                  covariates_df.loc[diseases==disease],
-                  kind='reg')
-    plt.title(disease)
-    plt.show()
-
-
-# These seem to affected by outliers. Standard linear regression assumes errors are normally distributed, which have thin tails that can be disproportionately affected by outliers. It would be possible to do a Bayesian linear regression, replacing the normal with a thicker tailed Student-t. But perhaps there are simpler options. These issues will be explored in a future pull request.
