@@ -1,0 +1,34 @@
+acronym	disease
+ACC	adrenocortical cancer
+BLCA	bladder urothelial carcinoma
+BRCA	breast invasive carcinoma
+CESC	cervical & endocervical cancer
+CHOL	cholangiocarcinoma
+COAD	colon adenocarcinoma
+DLBC	diffuse large B-cell lymphoma
+ESCA	esophageal carcinoma
+GBM	glioblastoma multiforme
+HNSC	head & neck squamous cell carcinoma
+KICH	kidney chromophobe
+KIRC	kidney clear cell carcinoma
+KIRP	kidney papillary cell carcinoma
+LAML	acute myeloid leukemia
+LGG	brain lower grade glioma
+LIHC	liver hepatocellular carcinoma
+LUAD	lung adenocarcinoma
+LUSC	lung squamous cell carcinoma
+MESO	mesothelioma
+OV	ovarian serous cystadenocarcinoma
+PAAD	pancreatic adenocarcinoma
+PCPG	pheochromocytoma & paraganglioma
+PRAD	prostate adenocarcinoma
+READ	rectum adenocarcinoma
+SARC	sarcoma
+SKCM	skin cutaneous melanoma
+STAD	stomach adenocarcinoma
+TGCT	testicular germ cell tumor
+THCA	thyroid carcinoma
+THYM	thymoma
+UCEC	uterine corpus endometrioid carcinoma
+UCS	uterine carcinosarcoma
+UVM	uveal melanoma

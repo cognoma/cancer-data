@@ -19,6 +19,13 @@ import pandas
 
 # In[2]:
 
+path = os.path.join('download', 'diseases.tsv')
+disease_df = pandas.read_table(path)
+disease_df.head(2)
+
+
+# In[3]:
+
 path = os.path.join('download', 'PANCAN_clinicalMatrix.tsv.bz2')
 
 # Mapping to rename and filter columns
@@ -27,6 +34,7 @@ renamer = collections.OrderedDict([
     ('_PATIENT', 'patient_id'),
     ('sample_type', 'sample_type'),
     ('_primary_disease', 'disease'),
+    ('acronym', 'acronym'),
     ('_primary_site', 'organ_of_origin'),
     ('gender', 'gender'),
     ('age_at_initial_pathologic_diagnosis', 'age_diagnosed'),
@@ -46,6 +54,7 @@ sample_types = {
 clinmat_df = (
     pandas.read_table(path)
     .rename(columns=renamer)
+    .merge(disease_df, how='left')
     [list(renamer.values())]
     .query("sample_type in @sample_types")
     .set_index('sample_id', drop=False)
@@ -57,10 +66,13 @@ clinmat_df.gender = clinmat_df.gender.str.title()
 # Check that no patients are duplicated
 assert not clinmat_df.duplicated('patient_id', keep=False).any()
 
+# Check that all diseases in clinmat_df are in disease_df
+assert not set(clinmat_df.disease) - set(disease_df.disease)
+
 len(clinmat_df)
 
 
-# In[3]:
+# In[4]:
 
 clinmat_df.head(2)
 
@@ -69,7 +81,7 @@ clinmat_df.head(2)
 # 
 # This file contains mutation data (which mutations each sample contains) See the [online documentation](https://genome-cancer.soe.ucsc.edu/proj/site/xena/datapages/?dataset=TCGA.PANCAN.sampleMap/PANCAN_mutation&host=https://tcga.xenahubs.net) for `PANCAN_mutation`. Note that duplicate mutation rows, which [occur](https://groups.google.com/d/msg/ucsc-cancer-genomics-browser/eg6nJOFSefw/Z0BM6pU9BAAJ "Message on the Xena Browser Google Group") for samples that were sequenced multiple times, are filtered.
 
-# In[4]:
+# In[5]:
 
 path = os.path.join('download', 'PANCAN_mutation.tsv.bz2')
 snp_mutation_df = (
@@ -80,13 +92,13 @@ snp_mutation_df = (
 snp_mutation_df.head(2)
 
 
-# In[5]:
+# In[6]:
 
 # Number of samples with at least one mutation
 snp_mutation_df.sample_id.nunique()
 
 
-# In[6]:
+# In[7]:
 
 # Mutations counts by type
 snp_mutation_df.effect.value_counts().reset_index()
@@ -96,7 +108,7 @@ snp_mutation_df.effect.value_counts().reset_index()
 # 
 # The next cell specifies which mutations to preserve as gene-affecting, which were chosen according to the red & blue [mutation effects in Xena](http://xena.ucsc.edu/how-we-characterize-mutations/).
 
-# In[7]:
+# In[8]:
 
 mutations = {
     'Frame_Shift_Del',
@@ -112,13 +124,13 @@ mutations = {
 }
 
 
-# In[8]:
+# In[9]:
 
 # Mutations effects that were observed but nut included
 set(snp_mutation_df.effect.unique()) - mutations
 
 
-# In[9]:
+# In[10]:
 
 gene_mutation_df = (snp_mutation_df
     .query("effect in @mutations")
@@ -133,7 +145,7 @@ gene_mutation_df.head(2)
 
 # Next, map combination of chromosome/gene symbol to Entrez ID
 
-# In[10]:
+# In[11]:
 
 # Retrieve chr/gene symbol to entrez_id mapping
 path = os.path.join('mapping', 'PANCAN-mutation', 'PANCAN-mutation-gene-map.tsv')
@@ -141,7 +153,7 @@ mutation_map_df = pandas.read_table(path)
 mutation_map_df.head(2)
 
 
-# In[11]:
+# In[12]:
 
 # merge with mapping df to yield column with entrez_id
 # inner join will drop mutations that are not mapped
@@ -150,7 +162,7 @@ gene_mutation_df = pandas.merge(gene_mutation_df, mutation_map_df, left_on = ['c
 gene_mutation_df.head(2)
 
 
-# In[12]:
+# In[13]:
 
 # Create a sample (rows) by gene (columns) matrix of mutation status
 
@@ -161,19 +173,19 @@ gene_mutation_mat_df = (gene_mutation_df
 gene_mutation_mat_df.shape
 
 
-# In[13]:
+# In[14]:
 
 '{:.2%} sample-gene pairs are mutated'.format(
     gene_mutation_mat_df.stack().mean())
 
 
-# In[14]:
+# In[15]:
 
 # Top mutated genes
 gene_mutation_df.gene.value_counts().reset_index().head(5)
 
 
-# In[15]:
+# In[16]:
 
 # Top mutated samples
 gene_mutation_df.sample_id.value_counts().reset_index().head(5)
@@ -183,14 +195,14 @@ gene_mutation_df.sample_id.value_counts().reset_index().head(5)
 # 
 # This file contains gene expression data from RNA-Sequencing. See the [online documentation](https://genome-cancer.soe.ucsc.edu/proj/site/xena/datapages/?dataset=TCGA.PANCAN.sampleMap/HiSeqV2&host=https://tcga.xenahubs.net) for `HiSeqV2`.
 
-# In[16]:
+# In[17]:
 
 # Read the gene × sample dataset
 path = os.path.join('download', 'HiSeqV2.tsv.bz2')
 expr_df = pandas.read_table(path, index_col=0)
 
 
-# In[17]:
+# In[18]:
 
 # Retrieve symbol to gene mapping for HiSeqV2
 path = os.path.join('mapping', 'HiSeqV2-genes', 'HiSeqV2-gene-map.tsv')
@@ -202,7 +214,7 @@ unmapped_symbols = set(expr_df.index) - set(symbol_to_entrez)
 unmapped_symbols
 
 
-# In[18]:
+# In[19]:
 
 # Process the dataset
 expr_df = (expr_df
@@ -220,13 +232,13 @@ expr_df.index.rename('sample_id', inplace=True)
 expr_df.shape
 
 
-# In[19]:
+# In[20]:
 
 # Number of patients represented in the expression dataset
 clinmat_df.query("sample_id in @expr_df.index").patient_id.nunique()
 
 
-# In[20]:
+# In[21]:
 
 # Peak at the data matrix
 expr_df.iloc[:5, :5]
@@ -236,13 +248,13 @@ expr_df.iloc[:5, :5]
 # 
 # Find samples with both mutation and expression data. We assume that if a sample was not in `PANCAN_mutation`, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
 
-# In[21]:
+# In[22]:
 
 sample_ids = list(clinmat_df.index & gene_mutation_mat_df.index & expr_df.index)
 len(sample_ids)
 
 
-# In[22]:
+# In[23]:
 
 # Filter expression (x) and mutation (y) matrices for common samples
 sample_df = clinmat_df.loc[sample_ids, :]
@@ -250,17 +262,23 @@ x_df = expr_df.loc[sample_ids, :]
 y_df = gene_mutation_mat_df.loc[sample_ids, :]
 
 
+# In[24]:
+
+# Add a columnn for mutations per sample
+sample_df['n_mutations'] = y_df.sum(axis='columns')
+
+
 # ### Export matrices to TSVs
 # 
 # Matrices are saved as sample × gene TSVs. Subsetted matrices are also exported to allow users to quickly explore small portions of the dataset.
 
-# In[23]:
+# In[25]:
 
 path = os.path.join('data', 'samples.tsv')
 sample_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
 
 
-# In[24]:
+# In[26]:
 
 def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     """Randomly subset a dataframe, preserving row and column order."""
@@ -276,7 +294,7 @@ def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     )
 
 
-# In[25]:
+# In[27]:
 
 tsv_args = {'sep': '\t', 'float_format': '%.3g'}
 
