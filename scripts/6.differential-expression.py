@@ -57,7 +57,7 @@ def get_diffex(subtype_df):
     ttest = ttest_1samp(diffex_df, popmean=0, axis=0)
 
     df = pandas.DataFrame.from_items([
-        ('entrez_gene_id', diffex_df.columns.astype(int)),
+        ('entrez_gene_id', diffex_df.columns),
         ('patients', len(diffex_df)),
         ('tumor_mean', tumor_df.mean()),
         ('normal_mean', normal_df.mean()),
@@ -67,21 +67,29 @@ def get_diffex(subtype_df):
     ])
     return df
 
-diffex_df = type_df.groupby('acronym').apply(get_diffex).reset_index('acronym')
+diffex_df = (type_df
+    .groupby('acronym')
+    .apply(get_diffex)
+    .reset_index('acronym')
+    .query("patients >= 5")
+)
+
+diffex_df.entrez_gene_id = diffex_df.entrez_gene_id.astype(int)
 
 
 # In[6]:
 
 # Add gene symbols
 path = os.path.join('data', 'genes.tsv')
-gene_df = pandas.read_table(path)
+gene_df = pandas.read_table(path, low_memory=False)
 gene_df = gene_df[['entrez_gene_id', 'symbol']]
-diffex_df = gene_df.merge(diffex_df, how='right')
+len(gene_df)
 
 
 # In[7]:
 
-diffex_df.head()
+diffex_df = diffex_df.merge(gene_df, how='left')
+diffex_df.tail()
 
 
 # In[8]:
