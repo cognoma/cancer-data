@@ -44,24 +44,29 @@ renamer = collections.OrderedDict([
     ('_RFS', 'days_recurrence_free'),
 ])
 
+clinmat_df = (
+    pandas.read_table(path)
+    .rename(columns=renamer)
+    .merge(disease_df, how='left')
+    [list(renamer.values())]
+    .set_index('sample_id', drop=False)
+    .sort_values('sample_id')
+)
+
+# Fix capitalization of gender
+clinmat_df.gender = clinmat_df.gender.str.title()
+
+# Save unfiltered dataset to a TSV
+path = os.path.join('data', 'complete', 'samples.tsv')
+clinmat_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
+
 # Keep only these sample types
 # filters duplicate samples per patient
 sample_types = {
     'Primary Tumor',
     'Primary Blood Derived Cancer - Peripheral Blood',
 }
-
-clinmat_df = (
-    pandas.read_table(path)
-    .rename(columns=renamer)
-    .merge(disease_df, how='left')
-    [list(renamer.values())]
-    .query("sample_type in @sample_types")
-    .set_index('sample_id', drop=False)
-)
-
-# Fix capitalization of gender
-clinmat_df.gender = clinmat_df.gender.str.title()
+clinmat_df.query("sample_type in @sample_types", inplace=True)
 
 # Check that no patients are duplicated
 assert not clinmat_df.duplicated('patient_id', keep=False).any()
@@ -181,11 +186,18 @@ gene_mutation_mat_df.shape
 
 # In[15]:
 
+# Save complete mutation matrix
+path = os.path.join('data', 'complete', 'mutation-matrix.tsv.bz2')
+gene_mutation_mat_df.to_csv(path, sep='\t', compression='bz2')
+
+
+# In[16]:
+
 # Top mutated genes
 gene_mutation_df.gene.value_counts().reset_index().head(5)
 
 
-# In[16]:
+# In[17]:
 
 # Top mutated samples
 gene_mutation_df.sample_id.value_counts().reset_index().head(5)
@@ -195,14 +207,14 @@ gene_mutation_df.sample_id.value_counts().reset_index().head(5)
 # 
 # This file contains gene expression data from RNA-Sequencing. See the [online documentation](https://genome-cancer.soe.ucsc.edu/proj/site/xena/datapages/?dataset=TCGA.PANCAN.sampleMap/HiSeqV2&host=https://tcga.xenahubs.net) for `HiSeqV2`.
 
-# In[17]:
+# In[18]:
 
 # Read the gene × sample dataset
 path = os.path.join('download', 'HiSeqV2.tsv.bz2')
 expr_df = pandas.read_table(path, index_col=0)
 
 
-# In[18]:
+# In[19]:
 
 # Retrieve symbol to gene mapping for HiSeqV2
 path = os.path.join('mapping', 'HiSeqV2-genes', 'HiSeqV2-gene-map.tsv')
@@ -214,7 +226,7 @@ unmapped_symbols = set(expr_df.index) - set(symbol_to_entrez)
 unmapped_symbols
 
 
-# In[19]:
+# In[20]:
 
 # Process the dataset
 expr_df = (expr_df
@@ -232,29 +244,36 @@ expr_df.index.rename('sample_id', inplace=True)
 expr_df.shape
 
 
-# In[20]:
+# In[21]:
 
 # Number of patients represented in the expression dataset
 clinmat_df.query("sample_id in @expr_df.index").patient_id.nunique()
 
 
-# In[21]:
+# In[22]:
 
 # Peak at the data matrix
 expr_df.iloc[:5, :5]
+
+
+# In[23]:
+
+# Save complete expression matrix
+path = os.path.join('data', 'complete', 'expression-matrix.tsv.bz2')
+expr_df.to_csv(path, sep='\t', float_format='%.3g', compression='bz2')
 
 
 # ## Integrate expression and mutation data
 # 
 # Find samples with both mutation and expression data. We assume that if a sample was not in `PANCAN_mutation`, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
 
-# In[22]:
+# In[24]:
 
 sample_ids = list(clinmat_df.index & gene_mutation_mat_df.index & expr_df.index)
 len(sample_ids)
 
 
-# In[23]:
+# In[25]:
 
 # Filter expression (x) and mutation (y) matrices for common samples
 sample_df = clinmat_df.loc[sample_ids, :]
@@ -262,7 +281,7 @@ x_df = expr_df.loc[sample_ids, :]
 y_df = gene_mutation_mat_df.loc[sample_ids, :]
 
 
-# In[24]:
+# In[26]:
 
 # Add a columnn for mutations per sample
 sample_df['n_mutations'] = y_df.sum(axis='columns')
@@ -272,13 +291,13 @@ sample_df['n_mutations'] = y_df.sum(axis='columns')
 # 
 # Matrices are saved as sample × gene TSVs. Subsetted matrices are also exported to allow users to quickly explore small portions of the dataset.
 
-# In[25]:
+# In[27]:
 
 path = os.path.join('data', 'samples.tsv')
 sample_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
 
 
-# In[26]:
+# In[28]:
 
 def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     """Randomly subset a dataframe, preserving row and column order."""
@@ -294,7 +313,7 @@ def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     )
 
 
-# In[27]:
+# In[29]:
 
 tsv_args = {'sep': '\t', 'float_format': '%.3g'}
 
