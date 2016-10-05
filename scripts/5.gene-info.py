@@ -68,6 +68,7 @@ entrez_df.head()
 # In[5]:
 
 combined_df = entrez_df.merge(summary_df, how='right').sort_values('entrez_gene_id')
+combined_df.entrez_gene_id = combined_df.entrez_gene_id.astype(int)
 len(combined_df)
 
 
