@@ -640,8 +640,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 900	CCNG1	cyclin G1	protein-coding	10.76	0.9089
 901	CCNG2	cyclin G2	protein-coding	10.02	1.125
 902	CCNH	cyclin H	protein-coding	9.005	0.568
-904	CCNT1	cyclin T1	protein-coding	6.502	1.619
-904	CCNT1	cyclin T1	protein-coding	9.22	0.4996
+904	CCNT1	cyclin T1	protein-coding	7.861	0.963
 905	CCNT2	cyclin T2	protein-coding	9.333	0.6807
 908	CCT6A	chaperonin containing TCP1 subunit 6A	protein-coding	12.04	0.6748
 909	CD1A	CD1a molecule	protein-coding	3.289	2.866
@@ -793,8 +792,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 1101	CHAD	chondroadherin	protein-coding	4.139	2.584
 1102	RCBTB2	RCC1 and BTB domain containing protein 2	protein-coding	8.393	1.098
 1103	CHAT	choline O-acetyltransferase	protein-coding	0.3861	1.027
-1104	RCC1	regulator of chromosome condensation 1	protein-coding	7.451	1.406
-1104	RCC1	regulator of chromosome condensation 1	protein-coding	9.209	1.577
+1104	RCC1	regulator of chromosome condensation 1	protein-coding	8.33	1.143
 1105	CHD1	chromodomain helicase DNA binding protein 1	protein-coding	9.505	0.7518
 1106	CHD2	chromodomain helicase DNA binding protein 2	protein-coding	10.95	0.5892
 1107	CHD3	chromodomain helicase DNA binding protein 3	protein-coding	11.6	1.017
@@ -2188,8 +2186,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 3189	HNRNPH3	heterogeneous nuclear ribonucleoprotein H3	protein-coding	11.18	0.4946
 3190	HNRNPK	heterogeneous nuclear ribonucleoprotein K	protein-coding	13.45	0.3582
 3191	HNRNPL	heterogeneous nuclear ribonucleoprotein L	protein-coding	12.32	0.4012
-3192	HNRNPU	heterogeneous nuclear ribonucleoprotein U	protein-coding	9.112	1.141
-3192	HNRNPU	heterogeneous nuclear ribonucleoprotein U	protein-coding	13.25	0.4078
+3192	HNRNPU	heterogeneous nuclear ribonucleoprotein U	protein-coding	11.18	0.6614
 3195	TLX1	T-cell leukemia homeobox 1	protein-coding	2.325	2.695
 3196	TLX2	T-cell leukemia homeobox 2	protein-coding	1.413	1.902
 3198	HOXA1	homeobox A1	protein-coding	4.452	2.066
@@ -2899,11 +2896,9 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 4246	SCGB2A1	secretoglobin family 2A member 1	protein-coding	2.604	2.96
 4247	MGAT2	mannosyl (alpha-1,6-)-glycoprotein beta-1,2-N-acetylglucosaminyltransferase	protein-coding	9.698	0.5709
 4248	MGAT3	mannosyl (beta-1,4-)-glycoprotein beta-1,4-N-acetylglucosaminyltransferase	protein-coding	7.07	2.295
-4249	MGAT5	mannosyl (alpha-1,6-)-glycoprotein beta-1,6-N-acetyl-glucosaminyltransferase	protein-coding	10.39	0.8735
-4249	MGAT5	mannosyl (alpha-1,6-)-glycoprotein beta-1,6-N-acetyl-glucosaminyltransferase	protein-coding	7.216	1.78
+4249	MGAT5	mannosyl (alpha-1,6-)-glycoprotein beta-1,6-N-acetyl-glucosaminyltransferase	protein-coding	8.8	1.207
 4250	SCGB2A2	secretoglobin family 2A member 2	protein-coding	1.525	3.791
-4253	MIA2	melanoma inhibitory activity 2	protein-coding	1.996	2.689
-4253	MIA2	melanoma inhibitory activity 2	protein-coding	9.69	0.9563
+4253	MIA2	melanoma inhibitory activity 2	protein-coding	5.843	1.667
 4254	KITLG	KIT ligand	protein-coding	8.967	1.778
 4255	MGMT	O-6-methylguanine-DNA methyltransferase	protein-coding	8.365	1.371
 4256	MGP	matrix Gla protein	protein-coding	11.01	2.483
@@ -3243,8 +3238,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 4880	NPPC	natriuretic peptide C	protein-coding	0.9013	1.332
 4881	NPR1	natriuretic peptide receptor 1	protein-coding	7.177	1.973
 4882	NPR2	natriuretic peptide receptor 2	protein-coding	7.54	1.438
-4883	NPR3	natriuretic peptide receptor 3	protein-coding	4.409	2.566
-4883	NPR3	natriuretic peptide receptor 3	protein-coding	6.189	2.53
+4883	NPR3	natriuretic peptide receptor 3	protein-coding	5.299	2.519
 4884	NPTX1	neuronal pentraxin 1	protein-coding	4.577	3.118
 4885	NPTX2	neuronal pentraxin 2	protein-coding	6.135	2.725
 4886	NPY1R	neuropeptide Y receptor Y1	protein-coding	5.155	2.94
@@ -8260,8 +8254,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 23331	TTC28	tetratricopeptide repeat domain 28	protein-coding	8.933	1.194
 23332	CLASP1	cytoplasmic linker associated protein 1	protein-coding	10.38	0.6374
 23333	DPY19L1	dpy-19 like 1	protein-coding	9.58	1.067
-23334	SZT2	seizure threshold 2 homolog (mouse)	protein-coding	3.902	1.063
-23334	SZT2	seizure threshold 2 homolog (mouse)	protein-coding	9.794	0.6386
+23334	SZT2	seizure threshold 2 homolog (mouse)	protein-coding	6.848	0.667
 23335	WDR7	WD repeat domain 7	protein-coding	8.867	0.7782
 23336	SYNM	synemin	protein-coding	9.166	1.996
 23338	JADE2	jade family PHD finger 2	protein-coding	10.08	0.9904
@@ -8798,8 +8791,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 26092	TOR1AIP1	torsin 1A interacting protein 1	protein-coding	10.54	0.6498
 26093	CCDC9	coiled-coil domain containing 9	protein-coding	8.759	0.6936
 26094	DCAF4	DDB1 and CUL4 associated factor 4	protein-coding	8.161	0.7699
-26095	PTPN20	protein tyrosine phosphatase, non-receptor type 20	protein-coding	3.679	2.516
-26095	PTPN20	protein tyrosine phosphatase, non-receptor type 20	protein-coding	0.1552	0.6555
+26095	PTPN20	protein tyrosine phosphatase, non-receptor type 20	protein-coding	1.917	1.394
 26097	CHTOP	chromatin target of PRMT1	protein-coding	10.9	0.437
 26098	EDRF1	erythroid differentiation regulatory factor 1	protein-coding	8.297	0.6851
 26099	SZRD1	SUZ RNA binding domain containing 1	protein-coding	11.64	0.5084
@@ -9944,8 +9936,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 51455	REV1	REV1, DNA directed polymerase	protein-coding	9.37	0.5197
 51458	RHCG	Rh family C glycoprotein	protein-coding	4.042	4.041
 51460	SFMBT1	Scm-like with four mbt domains 1	protein-coding	7.948	0.826
-51463	GPR89B	G protein-coupled receptor 89B	protein-coding	6.091	1.11
-51463	GPR89B	G protein-coupled receptor 89B	protein-coding	4.227	1.384
+51463	GPR89B	G protein-coupled receptor 89B	protein-coding	5.159	0.9823
 51465	UBE2J1	ubiquitin conjugating enzyme E2 J1	protein-coding	10.71	0.6419
 51466	EVL	Enah/Vasp-like	protein-coding	10.4	1.237
 51471	NAT8B	N-acetyltransferase 8B (putative, gene/pseudogene)	protein-coding	1.89	1.791
@@ -10235,8 +10226,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 54435	HCG4	HLA complex group 4 (non-protein coding)	ncRNA	4.73	2.06
 54436	SH3TC1	SH3 domain and tetratricopeptide repeats 1	protein-coding	8.746	1.259
 54437	SEMA5B	semaphorin 5B	protein-coding	5.991	2.234
-54438	GFOD1	glucose-fructose oxidoreductase domain containing 1	protein-coding	5.684	1.339
-54438	GFOD1	glucose-fructose oxidoreductase domain containing 1	protein-coding	3.255	1.301
+54438	GFOD1	glucose-fructose oxidoreductase domain containing 1	protein-coding	4.47	1.215
 54439	RBM27	RNA binding motif protein 27	protein-coding	9.575	0.5732
 54440	SASH3	SAM and SH3 domain containing 3	protein-coding	7.88	1.641
 54441	STAG3L1	stromal antigen 3-like 1 (pseudogene)	pseudo	5.889	1.263
@@ -10387,8 +10377,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 54754	NUTM2F	NUT family member 2F	protein-coding	1.908	1.106
 54756	IL17RD	interleukin 17 receptor D	protein-coding	7.868	2.016
 54757	FAM20A	FAM20A, golgi associated secretory pathway pseudokinase	protein-coding	7.6	2.319
-54758	KLHDC4	kelch domain containing 4	protein-coding	7.549	0.8722
-54758	KLHDC4	kelch domain containing 4	protein-coding	8.371	0.7599
+54758	KLHDC4	kelch domain containing 4	protein-coding	7.96	0.6865
 54760	PCSK4	proprotein convertase subtilisin/kexin type 4	protein-coding	5.612	1.469
 54762	GRAMD1C	GRAM domain containing 1C	protein-coding	7.084	1.541
 54763	ROPN1	rhophilin associated tail protein 1	protein-coding	1.744	1.895
@@ -10860,8 +10849,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 55332	DRAM1	DNA damage regulated autophagy modulator 1	protein-coding	9.2	1.312
 55333	SYNJ2BP	synaptojanin 2 binding protein	protein-coding	9.877	0.6603
 55334	SLC39A9	solute carrier family 39 member 9	protein-coding	10.93	0.5624
-55335	NIPSNAP3B	nipsnap homolog 3B	protein-coding	4.789	1.229
-55335	NIPSNAP3B	nipsnap homolog 3B	protein-coding	4.82	1.342
+55335	NIPSNAP3B	nipsnap homolog 3B	protein-coding	4.804	1.219
 55336	FBXL8	F-box and leucine rich repeat protein 8	protein-coding	6.201	1.223
 55337	C19orf66	chromosome 19 open reading frame 66	protein-coding	9.367	0.884
 55339	WDR33	WD repeat domain 33	protein-coding	10.41	0.3562
@@ -11546,8 +11534,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 57115	PGLYRP4	peptidoglycan recognition protein 4	protein-coding	1.802	2.584
 57116	ZNF695	zinc finger protein 695	protein-coding	4.081	2.118
 57117	INTS12	integrator complex subunit 12	protein-coding	8.603	0.4852
-57118	CAMK1D	calcium/calmodulin dependent protein kinase ID	protein-coding	6.594	1.414
-57118	CAMK1D	calcium/calmodulin dependent protein kinase ID	protein-coding	8.156	1.375
+57118	CAMK1D	calcium/calmodulin dependent protein kinase ID	protein-coding	7.375	1.34
 57119	EPPIN	epididymal peptidase inhibitor	protein-coding	0.6825	1.22
 57120	GOPC	golgi associated PDZ and coiled-coil motif containing	protein-coding	9.815	0.6025
 57121	LPAR5	lysophosphatidic acid receptor 5	protein-coding	7.3	1.823
@@ -11838,8 +11825,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 57669	EPB41L5	erythrocyte membrane protein band 4.1 like 5	protein-coding	8.818	1.081
 57670	KIAA1549	KIAA1549	protein-coding	8.265	1.74
 57673	BEND3	BEN domain containing 3	protein-coding	7.314	1.053
-57674	RNF213	ring finger protein 213	protein-coding	8.788	1.259
-57674	RNF213	ring finger protein 213	protein-coding	11.93	0.943
+57674	RNF213	ring finger protein 213	protein-coding	10.36	1.039
 57677	ZFP14	ZFP14 zinc finger protein	protein-coding	7.411	0.9389
 57678	GPAM	glycerol-3-phosphate acyltransferase, mitochondrial	protein-coding	8.726	1.238
 57679	ALS2	ALS2, alsin Rho guanine nucleotide exchange factor	protein-coding	9.101	0.5942
@@ -12419,8 +12405,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 65122	PRAMEF2	PRAME family member 2	protein-coding	0.1182	0.5265
 65123	INTS3	integrator complex subunit 3	protein-coding	10.93	0.5812
 65124	SOWAHC	sosondowah ankyrin repeat domain family member C	protein-coding	9.178	1.201
-65125	WNK1	WNK lysine deficient protein kinase 1	protein-coding	3.621	1.435
-65125	WNK1	WNK lysine deficient protein kinase 1	protein-coding	11.99	0.7813
+65125	WNK1	WNK lysine deficient protein kinase 1	protein-coding	7.805	1.015
 65217	PCDH15	protocadherin related 15	protein-coding	1.767	2.798
 65220	NADK	NAD kinase	protein-coding	10.19	0.6039
 65243	ZFP69B	ZFP69 zinc finger protein B	protein-coding	5.215	0.9896
@@ -12771,8 +12756,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 79738	BBS10	Bardet-Biedl syndrome 10	protein-coding	8.352	0.801
 79739	TTLL7	tubulin tyrosine ligase like 7	protein-coding	5.526	2.198
 79740	ZBBX	zinc finger B-box domain containing	protein-coding	1.448	1.894
-79741	CCDC7	coiled-coil domain containing 7	protein-coding	2.425	1.222
-79741	CCDC7	coiled-coil domain containing 7	protein-coding	5.116	0.6473
+79741	CCDC7	coiled-coil domain containing 7	protein-coding	3.77	0.7671
 79742	CXorf36	chromosome X open reading frame 36	protein-coding	8.007	1.211
 79744	ZNF419	zinc finger protein 419	protein-coding	7.237	0.9429
 79745	CLIP4	CAP-Gly domain containing linker protein family member 4	protein-coding	8.614	1.634
@@ -13169,8 +13153,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 80755	AARSD1	alanyl-tRNA synthetase domain containing 1	protein-coding	9.159	0.6904
 80757	TMEM121	transmembrane protein 121	protein-coding	5.351	1.664
 80758	PRR7	proline rich 7, synaptic	protein-coding	6.051	1.545
-80759	KHDC1	KH homology domain containing 1	protein-coding	4.877	1.806
-80759	KHDC1	KH homology domain containing 1	protein-coding	3.116	1.577
+80759	KHDC1	KH homology domain containing 1	protein-coding	3.997	1.564
 80760	ITIH5	inter-alpha-trypsin inhibitor heavy chain family member 5	protein-coding	8.241	1.972
 80761	UPK3B	uroplakin 3B	protein-coding	4.153	3.108
 80762	NDFIP1	Nedd4 family interacting protein 1	protein-coding	11.67	0.7799
@@ -13489,8 +13472,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 83866	TTTY11	testis-specific transcript, Y-linked 11 (non-protein coding)	ncRNA	0.003871	0.07604
 83867	TTTY12	testis-specific transcript, Y-linked 12 (non-protein coding)	ncRNA	0.0009685	0.04042
 83868	TTTY13	testis-specific transcript, Y-linked 13 (non-protein coding)	ncRNA	0.001974	0.03415
-83869	TTTY14	testis-specific transcript, Y-linked 14 (non-protein coding)	ncRNA	1.785	2.246
-83869	TTTY14	testis-specific transcript, Y-linked 14 (non-protein coding)	ncRNA	1.091	1.548
+83869	TTTY14	testis-specific transcript, Y-linked 14 (non-protein coding)	ncRNA	1.438	1.864
 83871	RAB34	RAB34, member RAS oncogene family	protein-coding	9.936	1.622
 83872	HMCN1	hemicentin 1	protein-coding	7.612	2.121
 83873	GPR61	G protein-coupled receptor 61	protein-coding	1.424	1.794
@@ -13555,8 +13537,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 84057	MND1	meiotic nuclear divisions 1	protein-coding	5.46	1.731
 84058	WDR54	WD repeat domain 54	protein-coding	7.979	1.193
 84059	ADGRV1	adhesion G protein-coupled receptor V1	protein-coding	6.302	3.019
-84060	RBM48	RNA binding motif protein 48	protein-coding	7.999	0.5317
-84060	RBM48	RNA binding motif protein 48	protein-coding	3.469	0.7422
+84060	RBM48	RNA binding motif protein 48	protein-coding	5.734	0.5731
 84061	MAGT1	magnesium transporter 1	protein-coding	11.19	0.6379
 84062	DTNBP1	dystrobrevin binding protein 1	protein-coding	8.447	0.6635
 84063	KIRREL2	kin of IRRE like 2 (Drosophila)	protein-coding	2.449	2.385
@@ -14035,8 +14016,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 84958	SYTL1	synaptotagmin like 1	protein-coding	8.104	2.759
 84959	UBASH3B	ubiquitin associated and SH3 domain containing B	protein-coding	7.318	1.475
 84960	CCDC183	coiled-coil domain containing 183	protein-coding	3.508	1.735
-84961	FBXL20	F-box and leucine rich repeat protein 20	protein-coding	7.215	0.7144
-84961	FBXL20	F-box and leucine rich repeat protein 20	protein-coding	7.76	0.7095
+84961	FBXL20	F-box and leucine rich repeat protein 20	protein-coding	7.487	0.5766
 84962	AJUBA	ajuba LIM protein	protein-coding	8.896	1.55
 84964	ALKBH6	alkB homolog 6	protein-coding	7.313	0.8239
 84966	IGSF21	immunoglobin superfamily member 21	protein-coding	5.29	2.459
@@ -14429,8 +14409,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 91978	TPGS1	tubulin polyglutamylase complex subunit 1	protein-coding	6.635	1.39
 92002	FAM58A	family with sequence similarity 58 member A	protein-coding	8.635	0.7365
 92014	SLC25A51	solute carrier family 25 member 51	protein-coding	7.415	0.5954
-92017	SNX29	sorting nexin 29	protein-coding	5.104	1.372
-92017	SNX29	sorting nexin 29	protein-coding	9.136	0.905
+92017	SNX29	sorting nexin 29	protein-coding	7.12	1.074
 92070	CTBP1-AS2	CTBP1 antisense RNA 2 (head to head)	ncRNA	8.551	0.5869
 92086	GGTLC1	gamma-glutamyltransferase light chain 1	protein-coding	2.343	2.216
 92092	ZC3HAV1L	zinc finger CCCH-type containing, antiviral 1 like	protein-coding	4.994	1.695
@@ -14542,8 +14521,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 93408	MYL10	myosin light chain 10	protein-coding	0.1563	0.6127
 93426	SYCE1	synaptonemal complex central element protein 1	protein-coding	1.893	2.429
 93429	LOC93429	uncharacterized LOC93429	ncRNA	2.441	2.155
-93432	MGAM2	maltase-glucoamylase 2 (putative)	protein-coding	1.593	2.523
-93432	MGAM2	maltase-glucoamylase 2 (putative)	protein-coding	0.7844	1.803
+93432	MGAM2	maltase-glucoamylase 2 (putative)	protein-coding	1.189	2.129
 93436	ARMC6	armadillo repeat containing 6	protein-coding	9.629	0.6293
 93474	ZNF670	zinc finger protein 670	protein-coding	6.104	0.8488
 93487	MAPK1IP1L	mitogen-activated protein kinase 1 interacting protein 1 like	protein-coding	10.91	0.4769
@@ -14901,8 +14879,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 116832	RPL39L	ribosomal protein L39 like	protein-coding	6.826	2.084
 116835	HSPA12B	heat shock protein family A (Hsp70) member 12B	protein-coding	6.875	1.297
 116840	CNTROB	centrobin, centriole duplication and spindle assembly protein	protein-coding	9.445	0.5966
-116841	SNAP47	synaptosome associated protein 47	protein-coding	9.527	0.5093
-116841	SNAP47	synaptosome associated protein 47	protein-coding	6.154	1.037
+116841	SNAP47	synaptosome associated protein 47	protein-coding	7.841	0.6793
 116842	LEAP2	liver enriched antimicrobial peptide 2	protein-coding	3.063	2.162
 116843	SLC18B1	solute carrier family 18 member B1	protein-coding	8.445	1.081
 116844	LRG1	leucine rich alpha-2-glycoprotein 1	protein-coding	7.378	3.095
@@ -14978,8 +14955,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 118932	ANKRD22	ankyrin repeat domain 22	protein-coding	6.951	2.557
 118980	SFXN2	sideroflexin 2	protein-coding	7.826	1.211
 118987	PDZD8	PDZ domain containing 8	protein-coding	8.745	1.174
-119016	AGAP4	ArfGAP with GTPase domain, ankyrin repeat and PH domain 4	protein-coding	4.823	1.244
-119016	AGAP4	ArfGAP with GTPase domain, ankyrin repeat and PH domain 4	protein-coding	7.508	0.9559
+119016	AGAP4	ArfGAP with GTPase domain, ankyrin repeat and PH domain 4	protein-coding	6.166	0.998
 119032	BORCS7	BLOC-1 related complex subunit 7	protein-coding	9.108	0.9267
 119180	LYZL2	lysozyme like 2	protein-coding	0.1719	0.6175
 119369	NUDT9P1	nudix hydrolase 9 pseudogene 1	pseudo	1.943	1.084
@@ -15170,8 +15146,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 124857	WFIKKN2	WAP, follistatin/kazal, immunoglobulin, kunitz and netrin domain containing 2	protein-coding	1.951	1.836
 124872	B4GALNT2	beta-1,4-N-acetyl-galactosaminyltransferase 2	protein-coding	1.892	2.46
 124912	SPACA3	sperm acrosome associated 3	protein-coding	0.4857	1.039
-124923	SGK494	uncharacterized serine/threonine-protein kinase SgK494	protein-coding	5.652	1.175
-124923	SGK494	uncharacterized serine/threonine-protein kinase SgK494	protein-coding	3.261	1.289
+124923	SGK494	uncharacterized serine/threonine-protein kinase SgK494	protein-coding	4.457	1.135
 124925	SEZ6	seizure related 6 homolog	protein-coding	2.326	3.318
 124930	ANKRD13B	ankyrin repeat domain 13B	protein-coding	7.453	1.492
 124935	SLC43A2	solute carrier family 43 member 2	protein-coding	9.414	0.9904
@@ -15931,8 +15906,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 147011	PROCA1	protein interacting with cyclin A1	protein-coding	4.582	1.313
 147015	DHRS13	dehydrogenase/reductase 13	protein-coding	8.142	1.077
 147040	KCTD11	potassium channel tetramerization domain containing 11	protein-coding	8.987	1.005
-147081	CRHR1-IT1	CRHR1 intronic transcript 1	ncRNA	5.77	1.189
-147081	CRHR1-IT1	CRHR1 intronic transcript 1	ncRNA	7.458	0.9431
+147081	CRHR1-IT1	CRHR1 intronic transcript 1	ncRNA	6.614	1.009
 147111	NOTUM	NOTUM, palmitoleoyl-protein carboxylesterase	protein-coding	3.885	2.869
 147138	TMC8	transmembrane channel like 8	protein-coding	7.919	1.522
 147166	TRIM16L	tripartite motif containing 16-like	protein-coding	7.346	1.404
@@ -16805,8 +16779,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 201161	CENPV	centromere protein V	protein-coding	6.962	1.881
 201163	FLCN	folliculin	protein-coding	9.42	0.626
 201164	PLD6	phospholipase D family member 6	protein-coding	6.982	1.042
-201176	ARHGAP27	Rho GTPase activating protein 27	protein-coding	3.428	1.703
-201176	ARHGAP27	Rho GTPase activating protein 27	protein-coding	9.323	1.169
+201176	ARHGAP27	Rho GTPase activating protein 27	protein-coding	6.375	1.321
 201191	SAMD14	sterile alpha motif domain containing 14	protein-coding	5.006	1.805
 201229	LYRM9	LYR motif containing 9	protein-coding	7.509	1.299
 201232	SLC16A13	solute carrier family 16 member 13	protein-coding	6.358	1.319
@@ -17174,8 +17147,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 245973	ATP6V1C2	ATPase H+ transporting V1 subunit C2	protein-coding	6.583	1.391
 246119	TTTY10	testis-specific transcript, Y-linked 10 (non-protein coding)	ncRNA	0.2954	0.5732
 246122	TTTY7	testis-specific transcript, Y-linked 7 (non-protein coding)	ncRNA	0.01666	0.1374
-246126	TXLNGY	taxilin gamma pseudogene, Y-linked	pseudo	3.554	3.699
-246126	TXLNGY	taxilin gamma pseudogene, Y-linked	pseudo	3.289	3.502
+246126	TXLNGY	taxilin gamma pseudogene, Y-linked	pseudo	3.422	3.579
 246175	CNOT6L	CCR4-NOT transcription complex subunit 6 like	protein-coding	9.787	0.6455
 246176	GAS2L2	growth arrest specific 2 like 2	protein-coding	2.063	1.856
 246181	AKR7L	aldo-keto reductase family 7 like (gene/pseudogene)	pseudo	4.178	1.807
@@ -17705,8 +17677,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 284541	CYP4A22	cytochrome P450 family 4 subfamily A member 22	protein-coding	0.7003	1.886
 284546	C1orf185	chromosome 1 open reading frame 185	protein-coding	0.05186	0.2261
 284551	LINC01226	long intergenic non-protein coding RNA 1226	ncRNA	0.8336	1.434
-284565	NBPF15	neuroblastoma breakpoint family member 15	protein-coding	5.175	1.757
-284565	NBPF15	neuroblastoma breakpoint family member 15	protein-coding	7.496	1.149
+284565	NBPF15	neuroblastoma breakpoint family member 15	protein-coding	6.335	1.319
 284573	LINC00303	long intergenic non-protein coding RNA 303	ncRNA	0.367	0.6957
 284578	LOC284578	uncharacterized LOC284578	ncRNA	2.453	1.982
 284593	FAM41C	family with sequence similarity 41 member C	ncRNA	3.6	0.892
@@ -17906,9 +17877,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 286411	LINC00632	long intergenic non-protein coding RNA 632	ncRNA	0.7744	1.595
 286436	H2BFM	H2B histone family member M	protein-coding	0.3268	0.8255
 286451	YIPF6	Yip1 domain family member 6	protein-coding	8.149	0.8319
-286464	CFAP47	cilia and flagella associated protein 47	protein-coding	0.7448	1.162
-286464	CFAP47	cilia and flagella associated protein 47	protein-coding	1.125	1.384
-286464	CFAP47	cilia and flagella associated protein 47	protein-coding	1.31	1.671
+286464	CFAP47	cilia and flagella associated protein 47	protein-coding	1.06	1.33
 286467	FIRRE	firre intergenic repeating RNA element	ncRNA	2.875	1.896
 286499	FAM133A	family with sequence similarity 133 member A	protein-coding	2.737	2.68
 286514	MAGEB18	MAGE family member B18	protein-coding	0.1222	0.5001
@@ -18590,8 +18559,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 387644	LINC00202-1	long intergenic non-protein coding RNA 202-1	ncRNA	2.565	1.592
 387646	LRRC37A6P	leucine rich repeat containing 37 member A6, pseudogene	pseudo	4.539	1.589
 387647	PTCHD3P1	patched domain containing 3 pseudogene 1	pseudo	8.46	0.6699
-387680	FAM21A	family with sequence similarity 21 member A	protein-coding	9.163	0.6129
-387680	FAM21A	family with sequence similarity 21 member A	protein-coding	8.324	1.382
+387680	FAM21A	family with sequence similarity 21 member A	protein-coding	8.743	0.7467
 387694	SH2D4B	SH2 domain containing 4B	protein-coding	1.52	1.136
 387695	C10orf99	chromosome 10 open reading frame 99	protein-coding	2.554	3.92
 387700	SLC16A12	solute carrier family 16 member 12	protein-coding	3.643	2.722
@@ -18688,8 +18656,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 388650	FAM69A	family with sequence similarity 69 member A	protein-coding	8.101	1.048
 388662	SLC6A17	solute carrier family 6 member 17	protein-coding	4.46	2.948
 388677	NOTCH2NL	notch 2 N-terminal like	protein-coding	8.905	1.072
-388685	LINC01138	long intergenic non-protein coding RNA 1138	ncRNA	2.009	1.07
-388685	LINC01138	long intergenic non-protein coding RNA 1138	ncRNA	6.995	1.082
+388685	LINC01138	long intergenic non-protein coding RNA 1138	ncRNA	4.502	0.959
 388692	LOC388692	uncharacterized LOC388692	ncRNA	7.822	1.307
 388695	LYSMD1	LysM domain containing 1	protein-coding	7.876	0.6764
 388697	HRNR	hornerin	protein-coding	3.223	1.909
@@ -19327,8 +19294,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 441502	RPS26P11	ribosomal protein S26 pseudogene 11	pseudo	1.095	0.7913
 441509	GLRA4	glycine receptor alpha 4	protein-coding	0.4997	0.9812
 441518	FAM127C	family with sequence similarity 127 member C	protein-coding	8.372	1.205
-441519	CT45A3	cancer/testis antigen family 45 member A3	protein-coding	0.3076	1.147
-441519	CT45A3	cancer/testis antigen family 45 member A3	protein-coding	0.4497	1.537
+441519	CT45A3	cancer/testis antigen family 45 member A3	protein-coding	0.3786	1.207
 441521	CT45A5	cancer/testis antigen family 45 member A5	protein-coding	0.7096	1.852
 441525	SPANXN4	SPANX family member N4	protein-coding	0.008348	0.1074
 441531	PGAM4	phosphoglycerate mutase family member 4	protein-coding	5.97	0.956
@@ -19949,8 +19915,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 728062	CT47A6	cancer/testis antigen family 47, member A6	protein-coding	0.0405	0.3827
 728090	CT47A2	cancer/testis antigen family 47, member A2	protein-coding	0.07929	0.5402
 728096	CT47A1	cancer/testis antigen family 47, member A1	protein-coding	0.06351	0.5842
-728113	ANXA8L1	annexin A8-like 1	protein-coding	0.4828	1.185
-728113	ANXA8L1	annexin A8-like 1	protein-coding	4.64	3.904
+728113	ANXA8L1	annexin A8-like 1	protein-coding	2.562	2.376
 728116	ZBTB8B	zinc finger and BTB domain containing 8B	protein-coding	2.037	2.108
 728118	NUTM2A	NUT family member 2A	protein-coding	5.296	1.083
 728130	NUTM2D	NUT family member 2D	pseudo	6.147	0.9155
@@ -20006,12 +19971,10 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 728758	PIN4P1	peptidylprolyl cis/trans isomerase, NIMA-interacting 4 pseudogene 1	pseudo	5.638	0.8399
 728773	PABPC1P2	poly(A) binding protein cytoplasmic 1 pseudogene 2	pseudo	0.4778	0.6279
 728788	ANKRD20A20P	ankyrin repeat domain 20 family member A20, pseudogene	pseudo	0.6609	0.8606
-728798	FRMPD2B	FERM and PDZ domain containing 2B, pseudogene	pseudo	0.1737	0.6943
-728798	FRMPD2B	FERM and PDZ domain containing 2B, pseudogene	pseudo	0.2305	0.7571
+728798	FRMPD2B	FERM and PDZ domain containing 2B, pseudogene	pseudo	0.2021	0.6227
 728819	C1GALT1C1L	C1GALT1-specific chaperone 1 like	protein-coding	3.55	1.617
 728833	FAM72D	family with sequence similarity 72 member D	protein-coding	5.473	1.79
-728855	LINC00623	long intergenic non-protein coding RNA 623	ncRNA	7.836	1.177
-728855	LINC00623	long intergenic non-protein coding RNA 623	ncRNA	5.411	1.513
+728855	LINC00623	long intergenic non-protein coding RNA 623	ncRNA	6.624	1.224
 728858	C12orf71	chromosome 12 open reading frame 71	protein-coding	0.6427	0.6712
 728882	FAM182B	family with sequence similarity 182 member B	ncRNA	4.488	1.9
 728911	CT45A2	cancer/testis antigen family 45 member A2	protein-coding	0.4558	1.383
@@ -20042,8 +20005,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 729384	TRIM49D2	tripartite motif containing 49D2	protein-coding	0.263	0.9
 729396	GAGE12J	G antigen 12J	protein-coding	0.441	1.56
 729408	GAGE2D	G antigen 2D	protein-coding	0.6524	2.073
-729438	GATSL2	GATS protein like 2	protein-coding	4.02	1.329
-729438	GATSL2	GATS protein like 2	protein-coding	1.665	2.098
+729438	GATSL2	GATS protein like 2	protein-coding	2.842	1.52
 729440	CCDC61	coiled-coil domain containing 61	protein-coding	7.393	0.8663
 729447	GAGE2A	G antigen 2A	protein-coding	0.3781	1.477
 729467	HSD52	uncharacterized LOC729467	ncRNA	0.3996	0.76
@@ -20379,8 +20341,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 100132911	DPH3P1	diphthamide biosynthesis 3 pseudogene 1	protein-coding	4.249	0.9877
 100132923	FAM66D	family with sequence similarity 66 member D	ncRNA	3.227	1.909
 100132929	FAM25BP	protein FAM25	pseudo	0.737	1.704
-100132948	FAM27C	family with sequence similarity 27 member C	ncRNA	3.695	1.474
-100132948	FAM27C	family with sequence similarity 27 member C	ncRNA	3.524	1.471
+100132948	FAM27C	family with sequence similarity 27 member C	ncRNA	3.609	1.431
 100132979	GOLGA8DP	golgin A8 family member D, pseudogene	pseudo	0.4036	0.7472
 100132994	CXorf49B	chromosome X open reading frame 49B	protein-coding	1.25	2.102
 100133036	FAM95B1	family with sequence similarity 95 member B1	ncRNA	4.42	1.944
@@ -20405,8 +20366,7 @@ entrez_gene_id	symbol	description	gene_type	mean_expression	stdev_expression
 100134368	LOC100134368	uncharacterized LOC100134368	ncRNA	2.193	0.9844
 100134713	NDUFB2-AS1	NDUFB2 antisense RNA 1	ncRNA	4.241	0.7474
 100134868	LOC100134868	uncharacterized LOC100134868	ncRNA	2.024	1.312
-100134869	UBE2Q2P2	ubiquitin conjugating enzyme E2 Q2 pseudogene 2	pseudo	3.226	1.212
-100134869	UBE2Q2P2	ubiquitin conjugating enzyme E2 Q2 pseudogene 2	pseudo	2.967	1.399
+100134869	UBE2Q2P2	ubiquitin conjugating enzyme E2 Q2 pseudogene 2	pseudo	3.097	1.168
 100134934	TEN1	TEN1, CST complex subunit	protein-coding	8.378	0.81
 100134938	UPK3BL	uroplakin 3B-like	protein-coding	7.556	2.191
 100141515	C17orf99	chromosome 17 open reading frame 99	protein-coding	1.234	1.403

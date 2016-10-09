@@ -242,6 +242,8 @@ expr_df = (expr_df
     # Convert gene symbols to entrez gene ids
     .rename(index=symbol_to_entrez)
     .rename(index=old_to_new_entrez)
+    # Average expression for rows with the same entrez_gene_id
+    .groupby(level=0).mean()
     # Transpose so the data is sample × gene
     .transpose()
     # Sort rows and columns
@@ -259,22 +261,17 @@ expr_df.shape
 
 # In[21]:
 
-expr_df.columns.duplicated().any()
-
-
-# In[22]:
-
 # Number of patients represented in the expression dataset
 clinmat_df.query("sample_id in @expr_df.index").patient_id.nunique()
 
 
-# In[23]:
+# In[22]:
 
 # Peak at the data matrix
 expr_df.iloc[:5, :5]
 
 
-# In[24]:
+# In[23]:
 
 # Save complete expression matrix
 path = os.path.join('data', 'complete', 'expression-matrix.tsv.bz2')
@@ -285,13 +282,13 @@ expr_df.to_csv(path, sep='\t', float_format='%.3g', compression='bz2')
 # 
 # Find samples with both mutation and expression data. We assume that if a sample was not in `PANCAN_mutation`, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
 
-# In[25]:
+# In[24]:
 
-sample_ids = list(clinmat_df.index & gene_mutation_mat_df.index & expr_df.index)
+sample_ids = sorted(clinmat_df.index & gene_mutation_mat_df.index & expr_df.index)
 len(sample_ids)
 
 
-# In[26]:
+# In[25]:
 
 # Filter expression (x) and mutation (y) matrices for common samples
 sample_df = clinmat_df.loc[sample_ids, :]
@@ -299,13 +296,13 @@ x_df = expr_df.loc[sample_ids, :]
 y_df = gene_mutation_mat_df.loc[sample_ids, :]
 
 
-# In[27]:
+# In[26]:
 
 # Add a columnn for mutations per sample
 sample_df['n_mutations'] = y_df.sum(axis='columns')
 
 
-# In[28]:
+# In[27]:
 
 x_gene_df = (
     gene_df.loc[x_df.columns, :]
@@ -317,7 +314,7 @@ x_gene_df.to_csv(path, sep='\t', index=False, float_format='%.4g')
 x_gene_df.head(2)
 
 
-# In[29]:
+# In[28]:
 
 y_gene_df = (
     gene_df.loc[y_df.columns, :]
@@ -333,13 +330,13 @@ y_gene_df.head(2)
 # 
 # Matrices are saved as sample × gene TSVs. Subsetted matrices are also exported to allow users to quickly explore small portions of the dataset.
 
-# In[30]:
+# In[29]:
 
 path = os.path.join('data', 'samples.tsv')
 sample_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
 
 
-# In[31]:
+# In[30]:
 
 def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     """Randomly subset a dataframe, preserving row and column order."""
@@ -355,7 +352,7 @@ def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     )
 
 
-# In[32]:
+# In[31]:
 
 tsv_args = {'sep': '\t', 'float_format': '%.3g'}
 
