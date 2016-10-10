@@ -44,7 +44,7 @@ type_df.head(2)
 
 # In[5]:
 
-def get_diffex(subtype_df):
+def get_diffex(subtype_df, expr_df):
     """
     For each gene, compute differential expression between paired tumor and normal tissue.
     """
@@ -67,9 +67,12 @@ def get_diffex(subtype_df):
     ])
     return df
 
+
+# In[6]:
+
 diffex_df = (type_df
     .groupby('acronym')
-    .apply(get_diffex)
+    .apply(get_diffex, expr_df=expr_df)
     .reset_index('acronym')
     .query("patients >= 5")
 )
@@ -77,7 +80,7 @@ diffex_df = (type_df
 diffex_df.entrez_gene_id = diffex_df.entrez_gene_id.astype(int)
 
 
-# In[6]:
+# In[7]:
 
 # Add gene symbols
 path = os.path.join('data', 'expression-genes.tsv')
@@ -86,14 +89,68 @@ gene_df = gene_df[['entrez_gene_id', 'symbol']]
 len(gene_df)
 
 
-# In[7]:
+# In[8]:
 
 diffex_df = diffex_df.merge(gene_df, how='left')
 diffex_df.tail()
 
 
-# In[8]:
+# In[9]:
 
 path = os.path.join('data', 'complete', 'differential-expression.tsv.bz2')
 diffex_df.to_csv(path, sep='\t', index=False, compression='bz2', float_format='%.4g')
+
+
+# In[10]:
+
+# Patients with paired samples per disease
+path = os.path.join('download', 'diseases.tsv')
+acronym_df = pandas.read_table(path)
+
+(type_df.acronym
+    .value_counts().rename('patients')
+    .reset_index().rename(columns={'index': 'acronym'})
+    .merge(acronym_df)
+    .sort_values('patients', ascending=False)
+)
+
+
+# # Reduce expression dimensionality with NMF
+
+# In[11]:
+
+from sklearn.decomposition import NMF
+import matplotlib.pyplot as plt
+import seaborn
+
+get_ipython().magic('matplotlib inline')
+
+
+# In[12]:
+
+nmf = NMF(n_components=100, random_state=0)
+expr_nmf_df = nmf.fit_transform(expr_df)
+expr_nmf_df = pandas.DataFrame(expr_nmf_df, index=expr_df.index)
+expr_nmf_df.iloc[:5, :5]
+
+
+# In[13]:
+
+diffex_nmf_df = (type_df
+    .groupby('acronym')
+    .apply(get_diffex, expr_df=expr_nmf_df)
+    .reset_index('acronym')
+    .rename(columns={'entrez_gene_id': 'component'})
+    .query("patients >= 5")
+)
+diffex_nmf_df.head(2)
+
+
+# In[14]:
+
+# Acronyms at https://github.com/cognoma/cancer-data/blob/master/download/diseases.tsv
+plot_df = diffex_nmf_df.pivot(index='acronym', columns='component', values='t_stat').fillna(0)
+grid = seaborn.clustermap(plot_df, metric='correlation', figsize=(9, 6))
+grid.ax_heatmap.tick_params(labelbottom='off')
+_ = plt.setp(grid.ax_heatmap.yaxis.get_majorticklabels(), rotation=0)
 
