@@ -31,5 +31,3 @@ This repository uses conda to manage its environment, which is named `cognoma-ca
 ## License
 
 This repository is dual licensed as [BSD 3-Clause](LICENSE-BSD.md) and [CC0 1.0](LICENSE-CC0.md), meaning any repository content can be used under either license. This licensing arrangement ensures source code is available under an [OSI-approved License](https://opensource.org/licenses/alphabetical), while non-code content — such as figures, data, and documentation — is maximally reusable under a public domain dedication.
-
-This repository contains data that derives from the Xena Browser's analysis of TCGA data. TCGA data is public domain, however the licensing of Xena Browser's derivate datasets is [yet to be determined](https://github.com/cognoma/cancer-data/issues/3). Our judgment is that the Xena Browser data or derivatives that are tracked or created in this repository are covered by fair use or represent content that is not subject to copyright in the United States.
