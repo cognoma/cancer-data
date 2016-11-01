@@ -27,3 +27,7 @@ The complete datasets created by this repository (`data/expression-matrix.tsv.bz
 ## Environment
 
 This repository uses conda to manage its environment, which is named `cognoma-cancer-data`. The required packages and versions are listed in [`environment.yml`](environment.yml). If as a developer, you require an additional package, add it to `environment.yml`.
+
+## License
+
+This repository is dual licensed as [BSD 3-Clause](LICENSE-BSD.md) and [CC0 1.0](LICENSE-CC0.md), meaning any repository content can be used under either license. This licensing arrangement ensures source code is available under an [OSI-approved License](https://opensource.org/licenses/alphabetical), while non-code content — such as figures, data, and documentation — is maximally reusable under a public domain dedication.
