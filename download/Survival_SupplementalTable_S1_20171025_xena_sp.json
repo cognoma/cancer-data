@@ -1,0 +1,8 @@
+{
+"cohort":"TCGA PanCanAtlas",
+"type":"clinicalMatrix",
+"label":"Curated clinical data",
+"description":"Curated clinical data from the PancanAtlas paper titled \"An Integrated TCGA Pan-Cancer Clinical Data Resource (TCGA-CDR) to drive high quality survival outcome analytics\"",
+"dataSubType":"phenotype",
+"version":"2018-04-04"
+}
