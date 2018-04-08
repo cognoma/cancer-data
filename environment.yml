@@ -1,8 +1,12 @@
 name: cognoma-cancer-data
+channels:
+- conda-forge
 dependencies:
-- jupyter=1.0.0
-- numexpr=2.6.0
-- numpy=1.11.1
-- pandas=0.18.1
-- python=3.5.2
-- seaborn=0.7.1
+- conda-forge::numexpr=2.6.0
+- conda-forge::numpy=1.11.1
+- conda-forge::pandas=0.18.1
+- conda-forge::python=3.5.2
+- conda-forge::seaborn=0.7.1
+- conda-forge::jupyter=1.0.0
+- conda-forge::ipykernel=4.8.1
+- conda-forge::nb_conda_kernels=2.1.0

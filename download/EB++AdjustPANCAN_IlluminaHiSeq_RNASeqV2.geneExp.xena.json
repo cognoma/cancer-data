@@ -1,0 +1,10 @@
+{
+"cohort":"TCGA PanCanAtlas",
+"type":"genomicMatrix",
+"unit":"log2(norm_value+1)",
+"colNormalization":true,
+"label":"Batch effects normalized mRNA data",
+"dataSubType":"gene expression RNAseq",
+"url":"https://www.synapse.org/#!Synapse:syn4976369.3",
+"version":"2016-12-29"
+}

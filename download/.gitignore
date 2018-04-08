@@ -1,5 +1,6 @@
 # Ignore compressed files in this directory due to file size
 *.bz2
+*.gz
 
 # Ignore genes directory
 genes

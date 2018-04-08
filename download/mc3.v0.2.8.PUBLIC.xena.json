@@ -1,0 +1,10 @@
+{
+"cohort":"TCGA PanCanAtlas",
+"type":"mutationVector",
+"assembly":"hg19",
+"label":"MC3 public version",
+"dataSubType":"somatic mutation (SNP and INDEL)",
+"url":"https://www.synapse.org/#!Synapse:syn7214402/wiki/405297, https://www.synapse.org/#!Synapse:syn7824274",
+"version":"2016-12-29",
+"wrangling_procedure":"downlaod mc3.v0.2.8.PUBLIC.maf.gz, only kept mutations with filter=PASS"
+}
