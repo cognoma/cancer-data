@@ -18,7 +18,8 @@ After installing and activating the [environment](#environment), run with the co
 The repository contains the following directories:
 
 + [`download`](download) — contains files retrieved from an external location whose content is unmodified.
-Downloaded files are currently not tracked due to large file size, although associated metadata files are tracked for versioning.
+Large downloaded files are tracked using Git LFS.
+Associated metadata files are also retained for versioning.
 + [`data`](data) — contains generated datasets.
 The complete matrix files are not currently tracked due to file size, but randomly-subsetted versions are available for development use (see [`data/subset`](data/subset)).
 

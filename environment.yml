@@ -2,6 +2,7 @@ name: cognoma-cancer-data
 channels:
 - conda-forge
 dependencies:
+- conda-forge::git-lfs=2.4.0
 - conda-forge::ipykernel=4.8.1
 - conda-forge::jupyter=1.0.0
 - conda-forge::nb_conda_kernels=2.1.0
