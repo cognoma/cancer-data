@@ -223,7 +223,8 @@ snp_mutation_df.head(2)
 
 
 # Number of samples with at least one mutation
-snp_mutation_df.sample_id.nunique()
+samples_with_mutation_calls = sorted(set(snp_mutation_df.sample_id))
+len(samples_with_mutation_calls)
 
 
 # In[17]:
@@ -291,6 +292,7 @@ gene_mutation_mat_df = (gene_mutation_df
                  columns='entrez_gene_id',
                  values='count',
                  fill_value=0)
+    .reindex(samples_with_mutation_calls, fill_value=0)
     .astype(bool).astype(int)
 )
 gene_mutation_mat_df.columns = gene_mutation_mat_df.columns.astype(str)
