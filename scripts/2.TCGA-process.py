@@ -393,7 +393,7 @@ expr_df.to_csv(path, sep='\t', float_format='%.3g', compression='bz2')
 # 
 # Find samples with both mutation and expression data.
 # 
-# We assume that if a sample was not in the `MC3` data, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
+# We assume that if a sample was not in the `MC3` data, it was not assayed for mutation ([more info](https://github.com/cognoma/cancer-data/issues/43#issuecomment-380957274)).
 
 # In[31]:
 
