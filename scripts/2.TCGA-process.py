@@ -55,7 +55,7 @@ chr_sym_map_df.head(2)
 # In[5]:
 
 
-path = os.path.join('download', 'diseases.tsv')
+path = os.path.join('data', 'diseases.tsv')
 disease_df = pandas.read_table(path)
 disease_df.head(2)
 
@@ -223,7 +223,8 @@ snp_mutation_df.head(2)
 
 
 # Number of samples with at least one mutation
-snp_mutation_df.sample_id.nunique()
+samples_with_mutation_calls = sorted(set(snp_mutation_df.sample_id))
+len(samples_with_mutation_calls)
 
 
 # In[17]:
@@ -291,6 +292,7 @@ gene_mutation_mat_df = (gene_mutation_df
                  columns='entrez_gene_id',
                  values='count',
                  fill_value=0)
+    .reindex(samples_with_mutation_calls, fill_value=0)
     .astype(bool).astype(int)
 )
 gene_mutation_mat_df.columns = gene_mutation_mat_df.columns.astype(str)
@@ -391,7 +393,7 @@ expr_df.to_csv(path, sep='\t', float_format='%.3g', compression='bz2')
 # 
 # Find samples with both mutation and expression data.
 # 
-# We assume that if a sample was not in the `MC3` data, it was not assayed for mutation. Hence, zero-mutation cancers are excluded even if they have mutation data.
+# We assume that if a sample was not in the `MC3` data, it was not assayed for mutation ([more info](https://github.com/cognoma/cancer-data/issues/43#issuecomment-380957274)).
 
 # In[31]:
 
