@@ -444,18 +444,54 @@ y_gene_df.to_csv(path, sep='\t', index=False, float_format='%.4g')
 y_gene_df.head(2)
 
 
+# ### Cancer type (disease) stats
+
+# In[36]:
+
+
+sample_to_acronym = dict(zip(clinmat_df.sample_id, clinmat_df.acronym))
+
+def get_cancer_count_column(sample_ids):
+    """
+    sample_ids is a pandas.Series
+    """
+    sample_ids = pandas.Series(sample_ids)
+    aconyms = sample_ids.map(sample_to_acronym)
+    counter = collections.Counter(aconyms)
+    counts = disease_df.acronym.map(counter)
+    return counts.fillna(0).astype(int)
+
+# Compute nubmer of samples per disease (cancer type)
+disease_df['n_samples'] = get_cancer_count_column(sample_df.sample_id)
+disease_df['n_clinical_samples'] = get_cancer_count_column(clinmat_df.sample_id)
+disease_df['n_expression_samples'] = get_cancer_count_column(expr_df.index)
+disease_df['n_mutation_samples'] = get_cancer_count_column(gene_mutation_mat_df.index)
+
+# Compute n_mutation summaries for samples in the aligned set
+acronyms = list(pandas.Series(y_df.index).map(sample_to_acronym))
+groups = y_df.sum(axis='columns').groupby(acronyms)
+disease_df['median_mutations'] = disease_df.acronym.map(dict(groups.median()))
+disease_df['mean_mutations'] = disease_df.acronym.map(dict(groups.mean()))
+
+# Export to TSV
+path = os.path.join('data', 'diseases.tsv')
+disease_df.to_csv(path, sep='\t', float_format='%.1f', index=False)
+
+disease_df.head(2)
+
+
 # ### Export matrices to TSVs
 # 
 # Matrices are saved as sample × gene TSVs. Subsetted matrices are also exported to allow users to quickly explore small portions of the dataset.
 
-# In[36]:
+# In[37]:
 
 
 path = os.path.join('data', 'samples.tsv')
 sample_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
 
 
-# In[37]:
+# In[38]:
 
 
 def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
@@ -472,7 +508,7 @@ def subset_df(df, nrows=None, ncols=None, row_seed=0, col_seed=0):
     )
 
 
-# In[38]:
+# In[39]:
 
 
 tsv_args = {'sep': '\t', 'float_format': '%.3g'}
