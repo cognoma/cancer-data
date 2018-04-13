@@ -55,7 +55,7 @@ chr_sym_map_df.head(2)
 # In[5]:
 
 
-path = os.path.join('download', 'diseases.tsv')
+path = os.path.join('data', 'diseases.tsv')
 disease_df = pandas.read_table(path)
 disease_df.head(2)
 
