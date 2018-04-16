@@ -18,13 +18,13 @@ LIHC	liver hepatocellular carcinoma	357	376	370	362	84.0	102.2
 LUAD	lung adenocarcinoma	509	519	515	513	189.0	263.1
 LUSC	lung squamous cell carcinoma	477	504	501	480	217.0	257.3
 MESO	mesothelioma	81	87	87	81	28.0	31.5
-OV	ovarian serous cystadenocarcinoma	14	537	295	62	67.0	70.4
+OV	ovarian serous cystadenocarcinoma	14	539	295	62	67.0	70.4
 PAAD	pancreatic adenocarcinoma	170	185	178	177	35.5	88.0
 PCPG	pheochromocytoma & paraganglioma	179	179	179	179	9.0	10.4
 PRAD	prostate adenocarcinoma	494	498	497	495	27.0	41.0
 READ	rectum adenocarcinoma	89	166	159	89	95.0	230.8
 SARC	sarcoma	234	261	259	236	38.5	60.0
-SKCM	skin cutaneous melanoma	103	108	103	104	235.0	342.1
+SKCM	skin cutaneous melanoma	462	470	465	463	290.5	473.3
 STAD	stomach adenocarcinoma	412	443	415	439	114.0	324.0
 TGCT	testicular germ cell tumor	129	134	134	129	14.0	16.2
 THCA	thyroid carcinoma	490	507	505	492	10.0	11.4

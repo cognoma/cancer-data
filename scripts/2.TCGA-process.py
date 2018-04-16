@@ -163,12 +163,21 @@ clinmat_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
 clinmat_df = clinmat_df.query('Redaction != "Redacted"').drop("Redaction", axis=1)
 
 # Keep only these sample types
-# filters duplicate samples per patient
 sample_types = {
     'Primary Solid Tumor',
+    'Recurrent Solid Tumor',
     'Primary Blood Derived Cancer - Peripheral Blood',
+    'Metastatic',
 }
-clinmat_df.query("sample_type in @sample_types", inplace=True)
+
+clinmat_df = (
+    clinmat_df
+    .query("sample_type in @sample_types")
+    # filters duplicate samples per patient (sample_ids are sorted,
+    # so two-digit suffix places a metastatic tumor after a primary
+    # solid tumor for a given a patient).
+    .drop_duplicates('patient_id', keep='first')
+)
 
 
 # In[12]:
