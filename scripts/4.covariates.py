@@ -20,7 +20,13 @@ import numpy as np
 
 
 path = os.path.join('data', 'samples.tsv')
-covariates_df = pd.read_table(path, index_col=0)
+
+# Protect against int columns with missing values getting converted to floats
+dtypes = {
+    'dead': str,
+    'recurred': str,
+}
+covariates_df = pd.read_table(path, index_col=0, dtype=dtypes)
 covariates_df['recurred'] = covariates_df.days_recurrence_free.notnull().astype(int)
 covariates_df.head(4).transpose()
 
