@@ -456,8 +456,8 @@ def get_cancer_count_column(sample_ids):
     sample_ids is a pandas.Series
     """
     sample_ids = pandas.Series(sample_ids)
-    aconyms = sample_ids.map(sample_to_acronym)
-    counter = collections.Counter(aconyms)
+    acronyms = sample_ids.map(sample_to_acronym)
+    counter = collections.Counter(acronyms)
     counts = disease_df.acronym.map(counter)
     return counts.fillna(0).astype(int)
 
