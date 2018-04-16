@@ -163,6 +163,7 @@ clinmat_df.to_csv(path, sep='\t', float_format='%.0f', index=False)
 clinmat_df = clinmat_df.query('Redaction != "Redacted"').drop("Redaction", axis=1)
 
 # Keep only these sample types
+# See https://github.com/cognoma/cancer-data/issues/46
 sample_types = {
     'Primary Solid Tumor',
     'Recurrent Solid Tumor',
