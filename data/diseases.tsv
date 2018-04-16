@@ -1,0 +1,34 @@
+acronym	disease	n_samples	n_clinical_samples	n_expression_samples	n_mutation_samples	median_mutations	mean_mutations
+ACC	adrenocortical cancer	79	92	79	92	27.0	68.0
+BLCA	bladder urothelial carcinoma	403	409	405	407	164.0	228.2
+BRCA	breast invasive carcinoma	787	1092	1090	789	37.0	76.5
+CESC	cervical & endocervical cancer	286	307	304	289	87.0	181.9
+CHOL	cholangiocarcinoma	36	36	36	36	36.0	52.2
+COAD	colon adenocarcinoma	287	457	449	288	122.0	444.0
+DLBC	diffuse large B-cell lymphoma	37	48	48	37	108.0	122.6
+ESCA	esophageal carcinoma	183	185	184	184	106.0	139.2
+GBM	glioblastoma multiforme	149	588	153	311	48.0	111.7
+HNSC	head & neck squamous cell carcinoma	499	528	520	507	102.0	142.2
+KICH	kidney chromophobe	66	66	66	66	21.0	33.2
+KIRC	kidney clear cell carcinoma	366	536	533	368	54.0	56.3
+KIRP	kidney papillary cell carcinoma	280	291	290	281	58.5	59.0
+LAML	acute myeloid leukemia	0	200	173	0		
+LGG	brain lower grade glioma	510	515	515	510	29.0	45.8
+LIHC	liver hepatocellular carcinoma	357	376	370	362	84.0	102.2
+LUAD	lung adenocarcinoma	509	519	515	513	189.0	263.1
+LUSC	lung squamous cell carcinoma	477	504	501	480	217.0	257.3
+MESO	mesothelioma	81	87	87	81	28.0	31.5
+OV	ovarian serous cystadenocarcinoma	14	537	295	62	67.0	70.4
+PAAD	pancreatic adenocarcinoma	170	185	178	177	35.5	88.0
+PCPG	pheochromocytoma & paraganglioma	179	179	179	179	9.0	10.4
+PRAD	prostate adenocarcinoma	494	498	497	495	27.0	41.0
+READ	rectum adenocarcinoma	89	166	159	89	95.0	230.8
+SARC	sarcoma	234	261	259	236	38.5	60.0
+SKCM	skin cutaneous melanoma	103	108	103	104	235.0	342.1
+STAD	stomach adenocarcinoma	412	443	415	439	114.0	324.0
+TGCT	testicular germ cell tumor	129	134	134	129	14.0	16.2
+THCA	thyroid carcinoma	490	507	505	492	10.0	11.4
+THYM	thymoma	118	124	120	122	13.0	21.0
+UCEC	uterine corpus endometrioid carcinoma	436	547	532	447	80.0	804.6
+UCS	uterine carcinosarcoma	57	57	57	57	49.0	120.2
+UVM	uveal melanoma	80	80	80	80	12.0	17.2
